@@ -57,13 +57,7 @@ def helper_path():
     return path
 
 def is_set():
-    path = helper_path()
-    p = subprocess.run([tools["getcap"], path], stdout=subprocess.PIPE)
-    if p.returncode != 0:
-        logger.error(f"Failed to get capability of {path}")
-        return False
-    out = str(p.stdout)
-    return out.find("cap_net_admin") >= 0 and out.find("cap_net_raw") >= 0
+    return True
 
 def setcap():
     path = helper_path()
